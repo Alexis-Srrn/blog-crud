@@ -1,0 +1,104 @@
+CREATE TABLE usuarios(
+id          int(255) auto_increment not null,
+nombre      varchar(100) not null,
+apellidos   varchar(100) not null,
+email       varchar(255) not null,
+password    varchar(255) not null,
+fecha       date not null,
+PRIMARY KEY(id),
+UNIQUE(email)
+)ENGINE=InnoDb;
+
+CREATE TABLE categorias(
+id      int(255) auto_increment not null,
+nombre  varchar(100),
+PRIMARY KEY(id)
+)ENGINE=InnoDb;
+
+CREATE TABLE entradas(
+id              int(255) auto_increment not null,
+usuario_id      int(255) not null,
+categoria_id    int(255) not null,
+titulo          varchar(255) not null,
+descripcion     MEDIUMTEXT,
+fecha           date not null,
+PRIMARY KEY(id),
+FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
+FOREIGN KEY(categoria_id) REFERENCES categorias(id) ON DELETE NO ACTION
+)ENGINE=InnoDb;
+
+
+//INSERTAR DATOS
+
+
+INSERT INTO categorias(id, nombre)
+VALUES (NULL, 'Acción');
+
+INSERT INTO categorias(id, nombre)
+VALUES (NULL, 'Rol');
+
+INSERT INTO categorias(id, nombre)
+VALUES (NULL, 'Deportes');
+
+INSERT INTO categorias(id, nombre)
+VALUES (NULL, 'Plataformas');
+
+
+
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 1, 1, 'Novedades de Halo Reach', 'Review de Halo Reach', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 1, 2, 'Review de LOL', 'Campeonato de LOL', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 1, 3, 'Torneo de Fifa 23', 'Review de Fifa 23', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 2, 1, 'Assasins Creed', 'Review de Assasins Creed', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 2, 2, 'Review de WOW', 'Enterate de WOW', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 2, 3, 'Nuevos jugadores de PES 23', 'Review de PES23', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 3, 1, 'Call Of Duty Online', 'Comparando con Fortnite', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 3, 1, 'Review de Fortnite', 'Todo sobre Fortnite', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 3, 3, 'Nuevos jugadores de Crash Racing', 'Review de Crash Racing', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 3, 1, 'Guia de Pokemon Platino', 'Pokemania', CURDATE());
+
+INSERT INTO entradas (id, usuario_id, categoria_id, titulo, descripcion, fecha)
+VALUES (NULL, 1, 2, 'Jugando Pokemon Unite', 'Pokemon Unite', CURDATE());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
